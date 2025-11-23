@@ -1,28 +1,63 @@
-# Queue-Queue Values in Descending Order Using Python 🧮
+# 10a) Queue- To sort the 5 float values in the Queue in descending order 
 
-This Python program simulates a queue using a list, removes the first two elements (FIFO order), and displays the remaining values in descending order.
+This Python program to sort the 5 float values in the Queue in descending order 
 
-## 🎯 Aim
+##  Aim
+To write a python program to sort the 5 float values in the Queue in descending order 
 
-To write a Python program to:
-- Accept user inputs into a list (queue)
-- Remove the first two elements (simulating dequeue)
-- Display the remaining values in **descending order**
+##  Algorithm
+1.Create an empty queue.
 
-## 🧠 Algorithm
+2.Take five float inputs from the user and insert each into the queue.
 
-1. Create an empty list `q`.
-2. Read an integer `n` to determine how many elements will be added.
-3. Loop `n` times:
-   - Read an input value.
-   - Append it to the list `q`.
-4. Remove the first element using `pop(0)`.
-5. Remove the second element using `pop(0)` again.
-6. Sort the list in descending order.
-7. Print the updated list.
+3.Find the total number of elements in the queue and store it in n.
 
-## 🧪 Program: 
+4.Start sorting:
 
+    Remove the first element and store it in x.
+
+    Compare x with every other element one by one.
+
+    Each time, remove the next element y from the queue.
+
+    If x is smaller, put y back into the queue.
+
+    If y is smaller, put x back and update x = y.
+
+5.After finishing the inner comparison loop, put the smallest value (x) back into the queue.
+
+6.Repeat the sorting steps for all elements in the queue.
+
+7.When sorting is done, print each element by showing the front value and removing it.
+
+8.Continue printing until the queue becomes empty.
+
+9.End
+
+##  Program: 
+```
+import queue  
+q = queue.Queue() 
+for i in range(5):
+    q.put(float(input()))  
+
+n =  q.qsize()  
+for i in range(n):  
+    x = q.get()  
+    for j in range(n-1):  
+        y = q.get()  
+        if x < y :  
+            q.put(y)  
+        else:  
+            q.put(x)  
+            x = y     
+    q.put(x)  
+while (q.empty() == False):   
+    print(q.queue[0], end = " ")    
+    q.get()
+```
 ### Output:
+<img width="758" height="412" alt="image" src="https://github.com/user-attachments/assets/9165fb20-9bc6-4afc-95c5-1aba5a66e27e" />
 
 ## Result:
+Program executed Successfully.
